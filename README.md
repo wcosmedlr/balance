@@ -37,7 +37,7 @@ To launch the system you must have installed docker and execute the next command
 ![Imgur Image](https://imgur.com/kcsaU1B.jpg)
 
 ### Expenses
-![Imgur Image](https://imgur.com/a/HBqaP6T.jpg)
+![Imgur Image](https://imgur.com/rhJSJ2L.jpg)
 
 ### Home
 ![Imgur Image](https://imgur.com/PsPJzq9.jpg)
