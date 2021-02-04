@@ -23,4 +23,4 @@ To launch the system you must have installed docker and execute the next command
 - docker run -d --name balance-frontend-container -p 3000:3000 balance-frontend
 
 ## Example
-![alt text](https://imgur.com/PsPJzq9)
+![Imgur Image](https://imgur.com/PsPJzq9.jpg)
