@@ -22,6 +22,15 @@ To launch the system you must have installed docker and execute the next command
 - docker build -t balance-frontend .
 - docker run -d --name balance-frontend-container -p 3000:3000 balance-frontend
 
+## Quality oriented (ATDD)
+
+### Backend
+![Imgur Image](https://imgur.com/AqxXG5r.jpg)
+![Imgur Image](https://imgur.com/9YPkYHX.jpg)
+
+### Frontend
+![Imgur Image](https://imgur.com/Ovh6nVg.jpg)
+
 ## Examples
 
 ### Members
