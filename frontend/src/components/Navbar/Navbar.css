@@ -1,0 +1,36 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    top: 0;
+  }
+  
+  li {
+    float: left;
+    margin-left: 3vw;
+  }
+
+  li + li{
+    margin-left: 0px;
+  }
+  
+  li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    
+    border-bottom: 10px solid var(--default-primary-color);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0);
+  
+  }
+  
+  li a:hover {
+    background-color: var(--default-primary-color);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .is-active {
+    border-bottom: 10px solid var(--text-primary-color);
+  }

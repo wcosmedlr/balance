@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.github.wcosmedlr
+testFramework: spock
+sourceLanguage: java
+buildTool: maven
+features: [ annotation-api, app-name, data, data-jpa, h2, http-client, java, java-application, jdbc-hikari, logback, maven, netty-server, readme, shade, spock, yaml ]
