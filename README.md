@@ -8,7 +8,7 @@ To launch the system you must have installed docker and execute the next command
 
 ### Database (MYSQL)
 
-- docker run --name balance-db -p 3306:3306 -p 33060:33060 -e TZ=Europe/Madrid -e MYSQL_USER=balance-us -e MYSQL_ROOT_PASSWORD=balance-pw-root -e MYSQL_PASSWORD=balance-pw -e MYSQL_DATABASE=balance-db-container -d mysql
+- docker run --name balance-db-container -p 3306:3306 -p 33060:33060 -e TZ=Europe/Madrid -e MYSQL_USER=balance-us -e MYSQL_ROOT_PASSWORD=balance-pw-root -e MYSQL_PASSWORD=balance-pw -e MYSQL_DATABASE=balance-db -d mysql
 
 ### Backend (Micronaut)
 
