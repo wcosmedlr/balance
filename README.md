@@ -26,7 +26,7 @@ To launch the system you must have installed docker and execute the next command
 
 ### Backend
 ![Imgur Image](https://imgur.com/AqxXG5r.jpg)
-![Imgur Image](https://imgur.com/9YPkYHX.jpg)
+![Imgur Image](https://imgur.com/pbZRT76.jpg)
 
 ### Frontend
 ![Imgur Image](https://imgur.com/Ovh6nVg.jpg)
