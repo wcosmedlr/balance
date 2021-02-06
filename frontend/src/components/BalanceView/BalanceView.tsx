@@ -1,7 +1,7 @@
 import React from "react";
 import './BalanceView.css';
 import { AppContext } from "../../AppContext";
-import { compareBalancesByValueDesc, fixDecimals } from "../../Utils";
+import { compareMoneyUnitByValueDesc, fixDecimals } from "../../Utils";
 
 export enum BalanceText {
   emptyMessage = 'Añade un miembro para ver su balance.'
@@ -23,7 +23,7 @@ const BalanceView: React.FC<BalanceViewProps> = () => {
         <h1 className="accent-color text-primary-color">Balances</h1>
         {error && <p>{error.message}</p>}
         {hasBalances()
-          ? balances.sort(compareBalancesByValueDesc)
+          ? balances.sort(compareMoneyUnitByValueDesc)
             .map((balance, index) =>
               <article className="card" key={index}>
                 <h2>{balance.owner.name} &nbsp;

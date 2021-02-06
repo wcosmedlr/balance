@@ -1,10 +1,11 @@
 import { Balance } from "./models/balance"
+import { MoneyUnit } from "./models/moneyunit"
 
 export const fixDecimals = (number: number) => {
     return Math.round((number + Number.EPSILON) * 100) / 100
 }
 
-export const compareBalancesByValueDesc = (balance1: Balance, balance2: Balance) => balance2.value - balance1.value
+export const compareMoneyUnitByValueDesc = (balance1: MoneyUnit, balance2: MoneyUnit) => balance2.value - balance1.value
 
 export const timeSince = (date:Date) => {
 

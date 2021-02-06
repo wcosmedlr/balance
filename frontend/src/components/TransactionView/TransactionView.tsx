@@ -1,7 +1,7 @@
 import React from "react";
 import './TransactionView.css';
 import { AppContext } from "../../AppContext";
-import { compareBalancesByValueDesc, fixDecimals } from "../../Utils";
+import { compareMoneyUnitByValueDesc, fixDecimals } from "../../Utils";
 
 export enum TransactionText {
   emptyMessage = 'Establece más de dos miembros con un balance distinto de cero para visualizar las transacciones sugeridas aquí.'
@@ -23,7 +23,7 @@ const TransactionView: React.FC<TransactionViewProps> = () => {
         <h1 className="accent-color text-primary-color">Transacciones</h1>
         {error && <p>{error.message}</p>}
         {hasTransactions()
-          ? transactions.sort(compareBalancesByValueDesc).map((transaction, index) =>
+          ? transactions.sort(compareMoneyUnitByValueDesc).map((transaction, index) =>
             <article className="card" key={index}>
               <h2>
               <span>{transaction.owner.name}</span> &nbsp;
