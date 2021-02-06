@@ -15,7 +15,7 @@ public class ExpenseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
-    private Date timestamp;
+    private Date timeStamp;
     private Double value;
 
     @ManyToOne

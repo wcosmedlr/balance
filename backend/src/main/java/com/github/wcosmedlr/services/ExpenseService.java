@@ -29,7 +29,7 @@ public class ExpenseService implements ExpenseServiceI {
 
     public Single<List<Expense>> findAllOrderByTimeStampDesc() {
         List<Expense> result = StreamSupport
-                .stream(Spliterators.spliteratorUnknownSize(expenseRepository.listOrderByTimestampDesc()
+                .stream(Spliterators.spliteratorUnknownSize(expenseRepository.listOrderByTimeStampDesc()
                         .iterator(), Spliterator.ORDERED), false)
             .map(expenseEntity -> modelMapper.map(expenseEntity, Expense.class))
             .collect(Collectors.toList()

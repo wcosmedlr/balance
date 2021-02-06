@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface ExpenseRepository extends CrudRepository<ExpenseEntity, Long> {
 
-    List<ExpenseEntity> listOrderByTimestampDesc();
+    List<ExpenseEntity> listOrderByTimeStampDesc();
 
 }
