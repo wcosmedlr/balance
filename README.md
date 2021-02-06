@@ -14,7 +14,7 @@ To launch the system you must have installed docker and execute the next command
 
 - cd backend
 - mvn package -Dpackaging=docker
-- docker run -d --name balance-backend-container -p 8080:8080 balance-backend
+- docker run -d --name balance-backend-container -p 8080:8080 -e DB-HOST=[YOUR-LOCAL-IP] balance-backend
 
 ### Frontend (ReactJS)
 
