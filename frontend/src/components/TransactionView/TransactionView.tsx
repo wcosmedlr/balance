@@ -1,7 +1,8 @@
 import React from "react";
 import './TransactionView.css';
 import { AppContext } from "../../AppContext";
-import { compareMoneyUnitByValueDesc, fixDecimals } from "../../Utils";
+import { fixDecimals } from "../../Utils";
+import { compareMoneyUnitByValueDesc } from "../../models/moneyunit";
 
 export enum TransactionText {
   emptyMessage = 'Establece más de dos miembros con un balance distinto de cero para visualizar las transacciones sugeridas aquí.'

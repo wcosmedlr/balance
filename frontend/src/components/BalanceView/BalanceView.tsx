@@ -1,7 +1,8 @@
 import React from "react";
 import './BalanceView.css';
 import { AppContext } from "../../AppContext";
-import { compareMoneyUnitByValueDesc, fixDecimals } from "../../Utils";
+import { fixDecimals } from "../../Utils";
+import { compareMoneyUnitByValueDesc } from "../../models/moneyunit";
 
 export enum BalanceText {
   emptyMessage = 'Añade un miembro para ver su balance.'

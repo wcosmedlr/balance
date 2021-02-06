@@ -12,3 +12,5 @@ export const buildMoneyUnit = ({
   owner,
   value,
 });
+
+export const compareMoneyUnitByValueDesc = (balance1: MoneyUnit, balance2: MoneyUnit) => balance2.value - balance1.value
