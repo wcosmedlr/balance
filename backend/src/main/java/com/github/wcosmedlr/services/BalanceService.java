@@ -1,8 +1,9 @@
 package com.github.wcosmedlr.services;
 
-import com.github.wcosmedlr.models.Balance;
-import com.github.wcosmedlr.models.Expense;
-import com.github.wcosmedlr.models.Member;
+import com.github.wcosmedlr.dto.Balance;
+import com.github.wcosmedlr.dto.Expense;
+import com.github.wcosmedlr.dto.Member;
+import com.github.wcosmedlr.dto.MoneyUnit;
 import io.reactivex.Single;
 
 import javax.inject.Inject;
@@ -35,11 +36,11 @@ public class BalanceService implements BalanceServiceI{
 
         members.stream().forEach(m ->
             totalSpentByMember.add(
-                    new Balance.Builder<>()
+                    Balance.builder()
                             .setOwner(m)
                             .setValue(expenses.stream()
                                     .filter(e -> e.getOwner().equals(m))
-                                    .map(Balance::getValue)
+                                    .map(MoneyUnit::getValue)
                                     .reduce(0D, Double::sum))
                             .build()
             )
@@ -52,7 +53,7 @@ public class BalanceService implements BalanceServiceI{
 
         totalSpentByMember.stream().forEach(b ->
             balances.add(
-                    new Balance.Builder<>()
+                    Balance.builder()
                             .setOwner(b.getOwner())
                             .setValue(b.getValue() - equalCost)
                             .build()

@@ -1,7 +1,6 @@
 package com.github.wcosmedlr.mothers
 
-
-import com.github.wcosmedlr.models.Member
+import com.github.wcosmedlr.dto.Member
 
 import javax.inject.Singleton
 
@@ -9,28 +8,28 @@ import javax.inject.Singleton
 class MemberMother <T extends Member>{
 
     T createValidUser1() {
-        return new Member.Builder()
+        return Member.builder()
                 .setName("Francisco")
                 .setSurname("Buyo")
                 .build();
     }
 
     T createValidUser2() {
-        return new Member.Builder()
+        return Member.builder()
                 .setName("Alfonso")
                 .setSurname("Pérez")
                 .build();
     }
 
     T createValidUser3() {
-        return new Member.Builder()
+        return Member.builder()
                 .setName("Raúl")
                 .setSurname("González")
                 .build();
     }
 
     T createValidUser4() {
-        return new Member.Builder()
+        return Member.builder()
                 .setName("Jose")
                 .setSurname("María")
                 .build();

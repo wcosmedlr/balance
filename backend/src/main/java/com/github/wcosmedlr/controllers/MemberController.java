@@ -1,6 +1,6 @@
 package com.github.wcosmedlr.controllers;
 
-import com.github.wcosmedlr.models.Member;
+import com.github.wcosmedlr.dto.Member;
 import com.github.wcosmedlr.services.MemberServiceI;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
@@ -8,6 +8,7 @@ import io.micronaut.http.annotation.Post;
 import io.reactivex.Maybe;
 import io.reactivex.Single;
 
+import javax.inject.Inject;
 import java.util.List;
 
 @Controller("/members")
@@ -15,6 +16,7 @@ public class MemberController {
 
     private final MemberServiceI memberService;
 
+    @Inject
     public MemberController(final MemberServiceI memberService) {
         this.memberService = memberService;
     }

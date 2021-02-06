@@ -1,6 +1,6 @@
 package com.github.wcosmedlr.services;
 
-import com.github.wcosmedlr.models.Member;
+import com.github.wcosmedlr.dto.Member;
 import io.reactivex.Maybe;
 import io.reactivex.Single;
 

@@ -1,6 +1,6 @@
 package com.github.wcosmedlr.controllers;
 
-import com.github.wcosmedlr.models.Transaction;
+import com.github.wcosmedlr.dto.Transaction;
 import com.github.wcosmedlr.services.TransactionServiceI;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;

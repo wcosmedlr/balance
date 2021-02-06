@@ -1,7 +1,6 @@
 package com.github.wcosmedlr.stubs
 
-
-import com.github.wcosmedlr.models.Expense
+import com.github.wcosmedlr.dto.Expense
 import com.github.wcosmedlr.mothers.ExpenseMother
 import com.github.wcosmedlr.services.ExpenseServiceI
 import io.micronaut.context.annotation.Primary

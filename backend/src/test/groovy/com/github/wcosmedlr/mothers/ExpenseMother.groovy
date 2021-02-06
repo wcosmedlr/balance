@@ -1,20 +1,18 @@
 package com.github.wcosmedlr.mothers
 
-
-import com.github.wcosmedlr.models.Expense
+import com.github.wcosmedlr.dto.Expense
 
 import javax.inject.Inject
 import javax.inject.Singleton
+import java.sql.Timestamp
+import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import java.time.LocalDateTime;
-import java.sql.Timestamp;
 
 @Singleton
 class ExpenseMother<T extends Expense>{
 
-    DateTimeFormatter formatter
-
-    MemberMother memberMother;
+    final private DateTimeFormatter formatter
+    final private MemberMother memberMother;
 
     @Inject
     ExpenseMother(DateTimeFormatter formatter, MemberMother memberMother) {
@@ -23,7 +21,7 @@ class ExpenseMother<T extends Expense>{
     }
 
     T createValidExpense1() {
-        return new Expense.Builder()
+        return Expense.builder()
                 .setDescription("Cena")
                 .setValue(100D)
                 .setTimeStamp(Timestamp.valueOf(LocalDateTime.parse("03-01-2021 11:30:40", formatter)))
@@ -32,7 +30,7 @@ class ExpenseMother<T extends Expense>{
     }
 
     T createValidExpense2() {
-        return new Expense.Builder()
+        return Expense.builder()
                 .setDescription("Taxi")
                 .setValue(75)
                 .setTimeStamp(Timestamp.valueOf(LocalDateTime.parse("29-02-2021 11:30:40", formatter)))
@@ -41,7 +39,7 @@ class ExpenseMother<T extends Expense>{
     }
 
     T createValidExpense3() {
-        return new Expense.Builder()
+        return Expense.builder()
                 .setDescription("Compra")
                 .setValue(50)
                 .setTimeStamp(Timestamp.valueOf(LocalDateTime.parse("02-02-2021 11:30:40", formatter)))
@@ -50,7 +48,7 @@ class ExpenseMother<T extends Expense>{
     }
 
     T createValidExpense4() {
-        return new Expense.Builder()
+        return Expense.builder()
                 .setDescription("Regalo")
                 .setValue(15)
                 .setTimeStamp(Timestamp.valueOf(LocalDateTime.parse("29-01-2021 11:30:40", formatter)))
@@ -59,7 +57,7 @@ class ExpenseMother<T extends Expense>{
     }
 
     T createValidExpense5() {
-        return new Expense.Builder()
+        return Expense.builder()
                 .setDescription("Hotel")
                 .setValue(10)
                 .setTimeStamp(Timestamp.valueOf(LocalDateTime.parse("04-02-2021 11:30:40", formatter)))

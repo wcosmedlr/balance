@@ -1,14 +1,6 @@
 import { Member, buildMember } from "./member";
+import { MoneyUnit, buildMoneyUnit } from "./moneyunit";
 
-export interface Balance {
-  owner: Member;
-  value: number;
-}
+export interface Balance extends MoneyUnit {}
 
-export const buildBalance = ({
-  owner = buildMember({}),
-  value = 0
-}: Partial<Balance>): Balance => ({
-  owner,
-  value,
-});
+export const buildBalance = buildMoneyUnit

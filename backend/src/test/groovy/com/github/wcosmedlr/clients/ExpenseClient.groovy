@@ -1,7 +1,7 @@
 package com.github.wcosmedlr.clients
 
-
-import com.github.wcosmedlr.models.Expense
+import com.github.wcosmedlr.dto.Balance
+import com.github.wcosmedlr.dto.Expense
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Post
 import io.micronaut.http.client.annotation.Client
@@ -9,15 +9,15 @@ import io.reactivex.Maybe
 import io.reactivex.Single
 
 @Client("/expenses")
-interface ExpenseClient {
+interface ExpenseClient <T extends Expense, K extends Long>{
 
     @Get("/")
-    Single<List<Expense>> findAllOrderByTimeStamp()
+    Single<List<T>> findAllOrderByTimeStamp()
 
     @Get("/{id}")
-    Maybe<Expense> findById(Long id)
+    Maybe<T> findById(K id)
 
     @Post("/")
-    Maybe<Long> add(Expense expense)
+    Maybe<K> add(T expense)
 
 }

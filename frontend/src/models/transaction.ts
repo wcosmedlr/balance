@@ -1,7 +1,8 @@
 import { Balance } from "./balance";
 import { Member, buildMember } from "./member";
+import { MoneyUnit } from "./moneyunit";
 
-export interface Transaction extends Balance {
+export interface Transaction extends MoneyUnit {
   benefactor: Member;
   value: number;
 }

@@ -1,6 +1,6 @@
 package com.github.wcosmedlr.services;
 
-import com.github.wcosmedlr.models.Balance;
+import com.github.wcosmedlr.dto.Balance;
 import io.reactivex.Single;
 
 import java.util.List;

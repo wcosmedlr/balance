@@ -1,7 +1,8 @@
 import { Balance} from "./balance";
 import { buildMember } from "./member";
+import { MoneyUnit } from "./moneyunit";
 
-export interface Expense extends Balance {
+export interface Expense extends MoneyUnit {
   id?: number;
   description: string;
   timeStamp: Date;

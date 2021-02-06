@@ -1,7 +1,6 @@
 package com.github.wcosmedlr.mothers
 
-
-import com.github.wcosmedlr.models.Balance
+import com.github.wcosmedlr.dto.Balance
 
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -9,8 +8,7 @@ import javax.inject.Singleton
 @Singleton
 class BalanceMother<T extends Balance>{
 
-    private MemberMother memberMother
-
+    final private  MemberMother memberMother
 
     @Inject
     BalanceMother(MemberMother memberMother) {
@@ -18,28 +16,28 @@ class BalanceMother<T extends Balance>{
     }
 
     T createValidBalance1(){
-        return new Balance.Builder()
+        return Balance.builder()
                 .setOwner(memberMother.createValidUser1())
                 .setValue(37.5)
                 .build()
     }
 
     T createValidBalance2(){
-        return new Balance.Builder()
+        return Balance.builder()
                 .setOwner(memberMother.createValidUser2())
                 .setValue(12.5)
                 .build()
     }
 
     T createValidBalance3(){
-        return new Balance.Builder()
+        return Balance.builder()
                 .setOwner(memberMother.createValidUser3())
                 .setValue(-12.5)
                 .build()
     }
 
     T createValidBalance4(){
-        return new Balance.Builder()
+        return Balance.builder()
                 .setOwner(memberMother.createValidUser4())
                 .setValue(-37.5)
                 .build()
@@ -54,4 +52,5 @@ class BalanceMother<T extends Balance>{
         };
         return Arrays.asList(balances);
     }
+
 }

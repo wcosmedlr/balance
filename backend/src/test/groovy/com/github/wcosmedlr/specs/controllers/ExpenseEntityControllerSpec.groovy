@@ -1,7 +1,7 @@
 package com.github.wcosmedlr.specs.controllers
 
 import com.github.wcosmedlr.clients.ExpenseClient
-import com.github.wcosmedlr.models.Expense
+import com.github.wcosmedlr.dto.Expense
 import com.github.wcosmedlr.mothers.ExpenseMother
 import io.micronaut.runtime.EmbeddedApplication
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
@@ -15,7 +15,7 @@ import javax.inject.Inject
 import java.util.stream.Collectors
 
 @MicronautTest
-class ExpenseControllerSpec extends Specification {
+class ExpenseEntityControllerSpec extends Specification {
 
     @Inject
     @Shared

@@ -1,8 +1,7 @@
 package com.github.wcosmedlr.mothers
 
-
-import com.github.wcosmedlr.models.Balance
-import com.github.wcosmedlr.models.Transaction
+import com.github.wcosmedlr.dto.Balance
+import com.github.wcosmedlr.dto.Transaction
 
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -10,8 +9,7 @@ import javax.inject.Singleton
 @Singleton
 class TransactionMother<T extends Transaction>{
 
-    private MemberMother memberMother
-
+    final private  MemberMother memberMother
 
     @Inject
     TransactionMother(MemberMother memberMother) {
@@ -19,7 +17,7 @@ class TransactionMother<T extends Transaction>{
     }
 
     T createValidTransaction1(){
-        return new Transaction.Builder()
+        return Transaction.builder()
                 .setBenefactor(memberMother.createValidUser1())
                 .setOwner(memberMother.createValidUser4())
                 .setValue(37.5)
@@ -27,7 +25,7 @@ class TransactionMother<T extends Transaction>{
     }
 
     T createValidTransaction2(){
-        return new Transaction.Builder()
+        return Transaction.builder()
                 .setBenefactor(memberMother.createValidUser2())
                 .setOwner(memberMother.createValidUser3())
                 .setValue(12.5)
@@ -35,7 +33,7 @@ class TransactionMother<T extends Transaction>{
     }
 
     List<T> createAListOfTransactionsToEvaluateBalances() {
-        T[] balances = new Balance[] {
+        T[] balances = new Transaction[] {
                 createValidTransaction1(),
                 createValidTransaction2()
         };

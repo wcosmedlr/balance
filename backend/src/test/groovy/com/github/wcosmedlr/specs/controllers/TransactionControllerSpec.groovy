@@ -1,7 +1,7 @@
 package com.github.wcosmedlr.specs.controllers
 
 import com.github.wcosmedlr.clients.TransactionClient
-import com.github.wcosmedlr.models.Transaction
+import com.github.wcosmedlr.dto.Transaction
 import com.github.wcosmedlr.mothers.TransactionMother
 import io.micronaut.runtime.EmbeddedApplication
 import io.micronaut.test.extensions.spock.annotation.MicronautTest

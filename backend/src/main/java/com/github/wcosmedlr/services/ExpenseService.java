@@ -1,6 +1,7 @@
 package com.github.wcosmedlr.services;
 
-import com.github.wcosmedlr.dao.Expense;
+import com.github.wcosmedlr.dao.ExpenseEntity;
+import com.github.wcosmedlr.dto.Expense;
 import com.github.wcosmedlr.repository.ExpenseRepository;
 import io.reactivex.Maybe;
 import io.reactivex.Single;
@@ -20,33 +21,32 @@ public class ExpenseService implements ExpenseServiceI {
     private final ModelMapper modelMapper;
     private final ExpenseRepository expenseRepository;
 
-
     @Inject
     public ExpenseService(ModelMapper modelMapper, ExpenseRepository expenseRepository) {
         this.modelMapper = modelMapper;
         this.expenseRepository = expenseRepository;
     }
 
-    public Single<List<com.github.wcosmedlr.models.Expense>> findAllOrderByTimeStampDesc() {
-        List<com.github.wcosmedlr.models.Expense> result = StreamSupport
-                .stream(Spliterators.spliteratorUnknownSize(expenseRepository.listOrderByTimeStampDesc()
+    public Single<List<Expense>> findAllOrderByTimeStampDesc() {
+        List<Expense> result = StreamSupport
+                .stream(Spliterators.spliteratorUnknownSize(expenseRepository.listOrderByTimestampDesc()
                         .iterator(), Spliterator.ORDERED), false)
-            .map(expense -> modelMapper.map(expense, com.github.wcosmedlr.models.Expense.class))
+            .map(expenseEntity -> modelMapper.map(expenseEntity, Expense.class))
             .collect(Collectors.toList()
         );
         return Single.just(result);
     }
 
     @Override
-    public Maybe<Long> add(com.github.wcosmedlr.models.Expense expense) {
-        Expense expenseEntity = modelMapper.map(expense, Expense.class);
+    public Maybe<Long> add(Expense expense) {
+        ExpenseEntity expenseEntity = modelMapper.map(expense, ExpenseEntity.class);
         expenseEntity = expenseRepository.save(expenseEntity);
         return Maybe.just(expenseEntity.getId());
     }
 
     @Override
-    public Maybe<com.github.wcosmedlr.models.Expense> findById(Long id) {
-        Expense expense = expenseRepository.findById(id).orElse(null);
-        return Maybe.just(modelMapper.map(expense, com.github.wcosmedlr.models.Expense.class));
+    public Maybe<Expense> findById(Long id) {
+        ExpenseEntity expenseEntity = expenseRepository.findById(id).orElse(null);
+        return Maybe.just(modelMapper.map(expenseEntity, Expense.class));
     }
 }

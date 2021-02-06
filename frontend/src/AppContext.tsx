@@ -73,7 +73,6 @@ const AppContextProvider: React.FC<AppContextProps> = ({children,
       initializeMembers()
     },[expenseRepository, memberRepository])
 
-
     const executions = useRef(0);
     useEffect(()=> {
       if (executions.current < 2) {

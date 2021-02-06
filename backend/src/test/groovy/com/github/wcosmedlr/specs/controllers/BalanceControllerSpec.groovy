@@ -1,7 +1,7 @@
 package com.github.wcosmedlr.specs.controllers
 
 import com.github.wcosmedlr.clients.BalanceClient
-import com.github.wcosmedlr.models.Balance
+import com.github.wcosmedlr.dto.Balance
 import com.github.wcosmedlr.mothers.BalanceMother
 import io.micronaut.runtime.EmbeddedApplication
 import io.micronaut.test.extensions.spock.annotation.MicronautTest

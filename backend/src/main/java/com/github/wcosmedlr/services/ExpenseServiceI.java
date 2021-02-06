@@ -1,6 +1,6 @@
 package com.github.wcosmedlr.services;
 
-import com.github.wcosmedlr.models.Expense;
+import com.github.wcosmedlr.dto.Expense;
 import io.reactivex.Maybe;
 import io.reactivex.Single;
 

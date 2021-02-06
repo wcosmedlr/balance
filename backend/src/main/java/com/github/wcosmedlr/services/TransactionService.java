@@ -1,7 +1,7 @@
 package com.github.wcosmedlr.services;
 
-import com.github.wcosmedlr.models.Balance;
-import com.github.wcosmedlr.models.Transaction;
+import com.github.wcosmedlr.dto.Balance;
+import com.github.wcosmedlr.dto.Transaction;
 import io.reactivex.Single;
 
 import javax.inject.Inject;
@@ -40,8 +40,7 @@ public class TransactionService implements TransactionServiceI {
                 if(thereIsTransaction) {
                     maxCredit.setValue(maxCredit.getValue() - minimum);
                     maxDebit.setValue(maxDebit.getValue() + minimum);
-                    transactions.add(new Transaction
-                            .Builder()
+                    transactions.add(Transaction.builder()
                             .setOwner(maxDebit.getOwner())
                             .setBenefactor(maxCredit.getOwner())
                             .setValue(minimum)

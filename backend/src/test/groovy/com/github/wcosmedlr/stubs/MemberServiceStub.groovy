@@ -1,7 +1,6 @@
 package com.github.wcosmedlr.stubs
 
-
-import com.github.wcosmedlr.models.Member
+import com.github.wcosmedlr.dto.Member
 import com.github.wcosmedlr.mothers.MemberMother
 import com.github.wcosmedlr.services.MemberServiceI
 import io.micronaut.context.annotation.Primary
