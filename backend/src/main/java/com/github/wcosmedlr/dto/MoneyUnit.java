@@ -7,7 +7,7 @@ import lombok.experimental.SuperBuilder;
 @Data
 @SuperBuilder(setterPrefix = "set")
 @NoArgsConstructor
-public abstract class MoneyUnit implements Comparable<MoneyUnit> {
+public class MoneyUnit implements Comparable<MoneyUnit> {
 
     private Member owner;
     private Double value;

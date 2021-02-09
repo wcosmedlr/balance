@@ -31,12 +31,12 @@ public class BalanceService implements BalanceServiceI{
     }
 
     public List<Balance> balances(List<Member> members, List<Expense> expenses){
-        final List<Balance> totalSpentByMember = new ArrayList<>();
+        final List<MoneyUnit> totalSpentByMember = new ArrayList<>();
         final List<Balance> balances = new ArrayList<>();
 
         members.stream().forEach(m ->
             totalSpentByMember.add(
-                    Balance.builder()
+                    MoneyUnit.builder()
                             .setOwner(m)
                             .setValue(expenses.stream()
                                     .filter(e -> e.getOwner().equals(m))
@@ -47,7 +47,7 @@ public class BalanceService implements BalanceServiceI{
         );
 
         final Double totalCost = totalSpentByMember.stream()
-                .map(Balance::getValue)
+                .map(MoneyUnit::getValue)
                 .reduce(0D, Double::sum);
         final Double equalCost = totalCost / members.size();
 
