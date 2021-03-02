@@ -1,15 +1,15 @@
 language: java
 sudo: false
- 
+
 cache:
-	directories:
-	- "$HOME/.m2"
- 
+ directories:
+  - "$HOME/.m2"
+
 before_cache:
-- rm -rf $HOME/.m2/repository/com/github/wcosmedlr/balance
+ - rm -rf $HOME/.m2/repository/com/github/wcosmedlr/balance-backend/
 
 before_install:
-- cd backend
- 
+ - cd backend
+
 jdk:
-	- openjdk11
+ - openjdk11
