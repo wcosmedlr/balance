@@ -13,10 +13,10 @@ interface TransactionViewProps {
 
 const TransactionView: React.FC<TransactionViewProps> = () => {
 
-  const { transactions } = React.useContext(AppContext);
+  const { balance } = React.useContext(AppContext);
   const [error] = React.useState<Error | null>(null);
 
-  const hasTransactions = () => transactions && transactions.length > 0;
+  const hasTransactions = () => balance.transactions && balance.transactions.length > 0;
 
   return (
     <section>
@@ -24,7 +24,7 @@ const TransactionView: React.FC<TransactionViewProps> = () => {
         <h1 className="accent-color text-primary-color">Transacciones</h1>
         {error && <p>{error.message}</p>}
         {hasTransactions()
-          ? transactions.sort(compareMoneyUnitByValueDesc).map((transaction, index) =>
+          ? balance.transactions.sort(compareMoneyUnitByValueDesc).map((transaction, index) =>
             <article className="card" key={index}>
               <h2>
               <span>{transaction.owner.name}</span> &nbsp;

@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0.23
+    ports:
+      - "3306:3306"
+      - "33060:33060"
+    environment: 
+      - TZ=Europe/Madrid
+      - MYSQL_USER=balance-us
+      - MYSQL_ROOT_PASSWORD=balance-pw-root
+      - MYSQL_PASSWORD=balance-pw
+      - MYSQL_DATABASE=balance-db

@@ -1,16 +1,16 @@
 import { render } from "@testing-library/react";
 import * as React from "react";
 import AppContextProvider from "../../AppContext";
+import { buildBalance } from "../../models/balance";
 import { buildMember } from "../../models/member";
 import { buildTransaction, Transaction } from "../../models/transaction";
-import { buildJestTransactionMockRepository, defaultJestTransactionMockRepository, TransactionRepository } from "../../respositories/TransactionRepository";
+import { AccountRepository, buildJestAccountMockRepository } from "../../respositories/BalanceRepository";
 import TransactionView, { TransactionText } from "./TransactionView";
 
 describe("TransactionView", () => {
 
   it('shows a message when members list is empty', async () => {
-    const transactionRepository: TransactionRepository = defaultJestTransactionMockRepository()
-    const view = render(<AppContextProvider transactionRepository={transactionRepository}>
+    const view = render(<AppContextProvider>
       <TransactionView />
     </AppContextProvider>);
 
@@ -30,12 +30,13 @@ describe("TransactionView", () => {
         benefactor: buildMember({id: 4, name: 'Member 4'})
       })
     ];
-    const transactionRepository: TransactionRepository = buildJestTransactionMockRepository(
-      Promise.resolve(transactions)
+    const account = buildBalance({transactions})
+    const accountRepository: AccountRepository = buildJestAccountMockRepository(
+      Promise.resolve(account)
     );
 
-    const view = render(<AppContextProvider transactionRepository={transactionRepository}
-      initialTransactions={transactions}>
+    const view = render(<AppContextProvider accountRepository={accountRepository}
+      initialBalance={account}>
       <TransactionView />
     </AppContextProvider>);
 

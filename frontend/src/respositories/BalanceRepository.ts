@@ -1,25 +1,25 @@
-import { Balance } from '../models/balance';
+import { Balance, buildBalance } from '../models/balance';
 import { SERVER } from '../Constants'
 
 const REPOSITORY : string = 'balances'
 
-export interface BalanceRepository {
-    getBalances: () => Promise<Balance[]>;
+export interface AccountRepository {
+    getBalance: () => Promise<Balance>;
 }
 
-export const balanceRepositoryInstance: BalanceRepository = {
-    getBalances: () => fetch(SERVER + REPOSITORY)
+export const accountRepositoryInstance: AccountRepository = {
+    getBalance: () => fetch(SERVER + REPOSITORY)
         .then(response => response.json())
 };
 
-export const balanceMockRepository: BalanceRepository = {
-    getBalances: () => Promise.resolve([])
+export const accountMockRepository: AccountRepository = {
+    getBalance: () => Promise.resolve(buildBalance({}))
 };
 
-export const buildJestBalanceMockRepository = (get: Promise<Balance[]>) => ({
-    getBalances: jest.fn(() => get),
-} as BalanceRepository);
+export const buildJestAccountMockRepository = (get: Promise<Balance>) => ({
+    getBalance: jest.fn(() => get)
+} as AccountRepository);
 
-export const defaultJestBalanceMockRepository = () => buildJestBalanceMockRepository(
-    balanceMockRepository.getBalances()
+export const defaultJestAccountMockRepository = () => buildJestAccountMockRepository(
+    accountMockRepository.getBalance()
 )

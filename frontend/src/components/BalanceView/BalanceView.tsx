@@ -13,10 +13,10 @@ interface BalanceViewProps {
 
 const BalanceView: React.FC<BalanceViewProps> = () => {
 
-  const { balances } = React.useContext(AppContext);
+  const { balance } = React.useContext(AppContext);
   const [error] = React.useState<Error | null>(null);
 
-  const hasBalances = () => balances && balances.length > 0;
+  const hasBalances = () => balance.balanceMembers && balance.balanceMembers.length > 0;
 
   return (
     <section>
@@ -24,12 +24,12 @@ const BalanceView: React.FC<BalanceViewProps> = () => {
         <h1 className="accent-color text-primary-color">Balances</h1>
         {error && <p>{error.message}</p>}
         {hasBalances()
-          ? balances.sort(compareMoneyUnitByValueDesc)
-            .map((balance, index) =>
+          ? balance.balanceMembers.sort(compareMoneyUnitByValueDesc)
+            .map((balanceMember, index) =>
               <article className="card" key={index}>
-                <h2>{balance.owner.name} &nbsp;
-                    <span className={balance.value >= 0 ? "positive" : "negative"}>
-                            {fixDecimals(balance.value)}€
+                <h2>{balanceMember.owner.name} &nbsp;
+                    <span className={balanceMember.value >= 0 ? "positive" : "negative"}>
+                            {fixDecimals(balanceMember.value)}€
                     </span>
                 </h2>
               </article>)
