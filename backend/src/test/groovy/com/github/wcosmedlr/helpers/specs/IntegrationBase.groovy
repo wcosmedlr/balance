@@ -24,6 +24,7 @@ abstract class IntegrationBase extends Specification implements TestPropertyProv
 
     @Override
     Map<String, String> getProperties() {
-        ["datasources.default.port": MySQLContainer.MY_SQL_CONTAINER.firstMappedPort] as Map<String, String>
+        ["datasources.default.port": MySQLContainer.MY_SQL_CONTAINER.firstMappedPort]
+                as Map<String, String>
     }
 }

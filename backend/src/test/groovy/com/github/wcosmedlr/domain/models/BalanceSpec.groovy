@@ -13,10 +13,10 @@ import javax.inject.Inject
 class BalanceSpec extends Specification{
 
     @Inject
-    private MemberMother memberMother;
+    private MemberMother memberMother
 
     @Inject
-    private ExpenseMother expenseMother;
+    private ExpenseMother expenseMother
 
     @Inject
     private BalanceMother balanceMother

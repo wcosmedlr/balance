@@ -42,7 +42,6 @@ public class BalanceStatus {
         return transactions;
     }
 
-
     protected BalanceMember getMaxCredit(List<BalanceMember> balanceMembers){
         return balanceMembers.stream().max(java.util.Comparator.naturalOrder()).orElse(null);
     }

@@ -83,7 +83,7 @@ class ExpenseRepositorySpecIT extends IntegrationBase{
         expense.getOwner().setId(memberId)
 
         when:
-        final Maybe<Long> result = expenseService.add(expense);
+        Maybe<Long> result = expenseService.add(expense);
         Long expenseId = result.blockingGet();
         expense.setId(expenseId)
 
