@@ -11,7 +11,7 @@ import spock.lang.Specification
 import javax.inject.Inject
 
 @MicronautTest(environments = "db")
-abstract class IntegrationBase extends Specification implements TestPropertyProvider {
+abstract class SpecificationIT extends Specification implements TestPropertyProvider {
 
     @Inject
     @AutoCleanup

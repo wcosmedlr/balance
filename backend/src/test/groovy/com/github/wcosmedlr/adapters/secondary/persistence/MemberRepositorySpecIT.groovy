@@ -4,14 +4,14 @@ import com.github.wcosmedlr.domain.models.Expense
 import com.github.wcosmedlr.domain.models.Member
 import com.github.wcosmedlr.domain.services.MemberService
 import com.github.wcosmedlr.helpers.mothers.MemberMother
-import com.github.wcosmedlr.helpers.specs.IntegrationBase
+import com.github.wcosmedlr.helpers.specs.SpecificationIT
 import io.reactivex.Maybe
 import io.reactivex.Single
 import spock.lang.Shared
 
 import javax.inject.Inject
 
-class MemberRepositorySpecIT extends IntegrationBase{
+class MemberRepositorySpecIT extends SpecificationIT{
 
     private MemberService memberService = getBean(MemberService)
 

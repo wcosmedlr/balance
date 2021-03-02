@@ -4,7 +4,7 @@ import com.github.wcosmedlr.domain.models.Expense
 import com.github.wcosmedlr.domain.services.ExpenseService
 import com.github.wcosmedlr.domain.services.MemberService
 import com.github.wcosmedlr.helpers.mothers.ExpenseMother
-import com.github.wcosmedlr.helpers.specs.IntegrationBase
+import com.github.wcosmedlr.helpers.specs.SpecificationIT
 import io.reactivex.Maybe
 import io.reactivex.Single
 import spock.lang.Shared
@@ -13,7 +13,7 @@ import javax.inject.Inject
 import javax.transaction.Transactional
 import java.util.stream.Collectors
 
-class ExpenseRepositorySpecIT extends IntegrationBase{
+class ExpenseRepositorySpecIT extends SpecificationIT{
 
     private ExpenseService expenseService = getBean(ExpenseService)
     private MemberService memberService = getBean(MemberService)
