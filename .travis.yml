@@ -12,4 +12,4 @@ before_install:
  - cd backend
 
 jdk:
- - openjdk11
+ - oraclejdk11
