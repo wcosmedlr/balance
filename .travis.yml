@@ -9,8 +9,9 @@ before_cache:
  - rm -rf $HOME/.m2/repository/com/github/wcosmedlr/balance-backend/
 
 before_install:
- - chmod +x mvnw 
+ - ls
  - cd backend
+ - ls
 
 jdk:
  - oraclejdk11
