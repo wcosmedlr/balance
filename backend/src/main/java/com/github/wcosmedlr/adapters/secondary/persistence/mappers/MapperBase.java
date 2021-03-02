@@ -1,4 +1,4 @@
-package com.github.wcosmedlr.adapters.secondary.persistence.persistence.mappers;
+package com.github.wcosmedlr.adapters.secondary.persistence.mappers;
 
 import org.mapstruct.MappingTarget;
 

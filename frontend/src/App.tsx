@@ -15,14 +15,14 @@ import MemberView from './components/MemberView';
 import Navbar from './components/Navbar';
 import { expenseRepositoryInstance } from './respositories/ExpenseRepository';
 import { memberRepositoryInstance } from './respositories/MemberRepository';
-import { accountRepositoryInstance } from './respositories/BalanceRepository';
+import { balanceRepositoryInstance } from './respositories/BalanceRepository';
 
 function App() {
   return (
     <AppContextProvider
       expenseRepository={expenseRepositoryInstance}
       memberRepository={memberRepositoryInstance}
-      accountRepository={accountRepositoryInstance}
+      balanceRepository={balanceRepositoryInstance}
     >
       <Router>
         <div className="container">

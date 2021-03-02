@@ -1,7 +1,7 @@
-package com.github.wcosmedlr.adapters.secondary.persistence.persistence;
+package com.github.wcosmedlr.adapters.secondary.persistence;
 
-import com.github.wcosmedlr.adapters.secondary.persistence.persistence.models.ExpenseEntity;
-import com.github.wcosmedlr.adapters.secondary.persistence.persistence.repositories.ExpenseRepository;
+import com.github.wcosmedlr.adapters.secondary.persistence.models.ExpenseEntity;
+import com.github.wcosmedlr.adapters.secondary.persistence.repositories.ExpenseRepository;
 import com.github.wcosmedlr.domain.models.Expense;
 import com.github.wcosmedlr.ports.secondary.repositories.ExpenseRepositoryI;
 import io.reactivex.Maybe;

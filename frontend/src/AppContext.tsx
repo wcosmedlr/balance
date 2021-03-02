@@ -3,7 +3,7 @@ import { Expense } from './models/expense';
 import { Member } from "./models/member";
 import { expenseMockRepository, ExpenseRepository } from "./respositories/ExpenseRepository";
 import { MemberRepository, memberMockRepository } from "./respositories/MemberRepository";
-import { AccountRepository, accountMockRepository } from "./respositories/BalanceRepository";
+import { BalanceRepository, balanceMockRepository } from "./respositories/BalanceRepository";
 import { act } from "react-dom/test-utils";
 import { Balance, buildBalance } from "./models/balance";
 
@@ -27,7 +27,7 @@ export const AppContext = createContext<AppContextType>({
 interface AppContextProps {
   expenseRepository?: ExpenseRepository;
   memberRepository?: MemberRepository;
-  accountRepository?: AccountRepository;
+  balanceRepository?: BalanceRepository;
   initialExpenses?: Expense[]
   initialMembers?: Member[]
   initialBalance?: Balance
@@ -36,7 +36,7 @@ interface AppContextProps {
 const AppContextProvider: React.FC<AppContextProps> = ({children,
   expenseRepository = expenseMockRepository,
   memberRepository = memberMockRepository,
-  accountRepository = accountMockRepository,
+  balanceRepository = balanceMockRepository,
   initialExpenses = [],
   initialMembers = [],
   initialBalance = buildBalance({})
@@ -72,14 +72,14 @@ const AppContextProvider: React.FC<AppContextProps> = ({children,
       }
   
       const updateAccount = async () =>{
-        const newBalance = await accountRepository.getBalance();
+        const newBalance = await balanceRepository.getBalance();
         act(() => {
           setBalance(newBalance)
         })
       }
 
       updateAccount()
-    }, [expenses, members, accountRepository])
+    }, [expenses, members, balanceRepository])
 
     const addExpense = (expense: Expense) => {
       expenseRepository.addExpense(expense).then(

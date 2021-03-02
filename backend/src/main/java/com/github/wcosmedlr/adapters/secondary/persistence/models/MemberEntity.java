@@ -1,6 +1,6 @@
-package com.github.wcosmedlr.adapters.secondary.persistence.persistence.models;
+package com.github.wcosmedlr.adapters.secondary.persistence.models;
 
-import com.github.wcosmedlr.adapters.secondary.persistence.persistence.mappers.MemberMapper;
+import com.github.wcosmedlr.adapters.secondary.persistence.mappers.MemberMapper;
 import com.github.wcosmedlr.domain.models.Member;
 import lombok.Data;
 import lombok.NoArgsConstructor;

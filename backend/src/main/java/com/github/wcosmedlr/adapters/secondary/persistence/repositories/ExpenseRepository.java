@@ -1,6 +1,6 @@
-package com.github.wcosmedlr.adapters.secondary.persistence.persistence.repositories;
+package com.github.wcosmedlr.adapters.secondary.persistence.repositories;
 
-import com.github.wcosmedlr.adapters.secondary.persistence.persistence.models.ExpenseEntity;
+import com.github.wcosmedlr.adapters.secondary.persistence.models.ExpenseEntity;
 import io.micronaut.data.annotation.Repository;
 import io.micronaut.data.repository.CrudRepository;
 

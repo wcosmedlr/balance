@@ -4,7 +4,7 @@ import AppContextProvider from "../../AppContext";
 import { buildBalance } from "../../models/balance";
 import { BalanceMember, buildBalanceMember } from "../../models/balancemember";
 import { buildMember } from "../../models/member";
-import { AccountRepository, buildJestAccountMockRepository } from "../../respositories/BalanceRepository";
+import { BalanceRepository, buildJestBalanceMockRepository } from "../../respositories/BalanceRepository";
 import BalanceView, { BalanceText } from "./BalanceView";
 
 describe("BalanceView", () => {
@@ -23,11 +23,11 @@ describe("BalanceView", () => {
       buildBalanceMember({owner: buildMember({id:1, name: 'Member 2'}), value: 80})
     ];
     const balance = buildBalance({balanceMembers})
-    const accountRepository: AccountRepository = buildJestAccountMockRepository(
+    const balanceRepository: BalanceRepository = buildJestBalanceMockRepository(
       Promise.resolve(balance)
     );
     
-    const view = render(<AppContextProvider accountRepository={accountRepository}
+    const view = render(<AppContextProvider balanceRepository={balanceRepository}
     initialBalance={balance}>
       <BalanceView/>
     </AppContextProvider>);

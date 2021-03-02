@@ -3,23 +3,23 @@ import { SERVER } from '../Constants'
 
 const REPOSITORY : string = 'balances'
 
-export interface AccountRepository {
+export interface BalanceRepository {
     getBalance: () => Promise<Balance>;
 }
 
-export const accountRepositoryInstance: AccountRepository = {
+export const balanceRepositoryInstance: BalanceRepository = {
     getBalance: () => fetch(SERVER + REPOSITORY)
         .then(response => response.json())
 };
 
-export const accountMockRepository: AccountRepository = {
+export const balanceMockRepository: BalanceRepository = {
     getBalance: () => Promise.resolve(buildBalance({}))
 };
 
-export const buildJestAccountMockRepository = (get: Promise<Balance>) => ({
+export const buildJestBalanceMockRepository = (get: Promise<Balance>) => ({
     getBalance: jest.fn(() => get)
-} as AccountRepository);
+} as BalanceRepository);
 
-export const defaultJestAccountMockRepository = () => buildJestAccountMockRepository(
-    accountMockRepository.getBalance()
+export const defaultJestAccountMockRepository = () => buildJestBalanceMockRepository(
+    balanceMockRepository.getBalance()
 )

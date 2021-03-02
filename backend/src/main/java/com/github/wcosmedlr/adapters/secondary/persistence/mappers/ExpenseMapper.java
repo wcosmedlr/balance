@@ -1,6 +1,6 @@
-package com.github.wcosmedlr.adapters.secondary.persistence.persistence.mappers;
+package com.github.wcosmedlr.adapters.secondary.persistence.mappers;
 
-import com.github.wcosmedlr.adapters.secondary.persistence.persistence.models.ExpenseEntity;
+import com.github.wcosmedlr.adapters.secondary.persistence.models.ExpenseEntity;
 import com.github.wcosmedlr.domain.models.Expense;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

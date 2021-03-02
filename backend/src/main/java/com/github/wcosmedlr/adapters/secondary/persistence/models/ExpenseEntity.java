@@ -1,6 +1,6 @@
-package com.github.wcosmedlr.adapters.secondary.persistence.persistence.models;
+package com.github.wcosmedlr.adapters.secondary.persistence.models;
 
-import com.github.wcosmedlr.adapters.secondary.persistence.persistence.mappers.ExpenseMapper;
+import com.github.wcosmedlr.adapters.secondary.persistence.mappers.ExpenseMapper;
 import com.github.wcosmedlr.domain.models.Expense;
 import lombok.Data;
 import lombok.NoArgsConstructor;

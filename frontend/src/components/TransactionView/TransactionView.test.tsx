@@ -4,7 +4,7 @@ import AppContextProvider from "../../AppContext";
 import { buildBalance } from "../../models/balance";
 import { buildMember } from "../../models/member";
 import { buildTransaction, Transaction } from "../../models/transaction";
-import { AccountRepository, buildJestAccountMockRepository } from "../../respositories/BalanceRepository";
+import { BalanceRepository, buildJestBalanceMockRepository } from "../../respositories/BalanceRepository";
 import TransactionView, { TransactionText } from "./TransactionView";
 
 describe("TransactionView", () => {
@@ -31,11 +31,11 @@ describe("TransactionView", () => {
       })
     ];
     const account = buildBalance({transactions})
-    const accountRepository: AccountRepository = buildJestAccountMockRepository(
+    const balanceRepository: BalanceRepository = buildJestBalanceMockRepository(
       Promise.resolve(account)
     );
 
-    const view = render(<AppContextProvider accountRepository={accountRepository}
+    const view = render(<AppContextProvider balanceRepository={balanceRepository}
       initialBalance={account}>
       <TransactionView />
     </AppContextProvider>);
