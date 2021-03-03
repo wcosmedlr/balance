@@ -12,6 +12,8 @@ import java.util.List;
 @SuperBuilder(setterPrefix = "set")
 @NoArgsConstructor
 public class BalanceControllerModel {
-    List<BalanceMember> balanceMembers;
-    List<Transaction> transactions;
+
+    private List<BalanceMember> balanceMembers;
+    private List<Transaction> transactions;
+
 }
