@@ -1,5 +1,8 @@
 # Getting Started with Balanced app
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/65df002a0cf3408396e615aa61c855c3)](https://app.codacy.com/gh/wcosmedlr/balance?utm_source=github.com&utm_medium=referral&utm_content=wcosmedlr/balance&utm_campaign=Badge_Grade_Settings)
+
+
 This project proposes a way to balance the economy between a group of members through a list of suggested transactions.
 
 ## Modules
