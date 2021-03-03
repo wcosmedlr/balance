@@ -28,12 +28,13 @@
         <skipUnitTests>${skipTests}</skipUnitTests>
         <skipIntegrationTests>${skipTests}</skipIntegrationTests>
         <jacoco.version>0.8.4</jacoco.version>
-        <jacoco.outputDir>${project.build.directory}</jacoco.outputDir>
-        <jacoco.utreportpath>${project.build.directory}/jacoco</jacoco.utreportpath>
-        <jacoco.utreportfile>${jacoco.utreportpath}/jacoco.exec</jacoco.utreportfile>
-        <jacoco.itreportpath>${project.build.directory}/jacoco</jacoco.itreportpath>
-        <jacoco.itreportfile>${jacoco.itreportpath}/jacoco-it.exec</jacoco.itreportfile>
-
+        <jacoco.outputDir>${project.build.directory}/jacoco-output</jacoco.outputDir>
+        <jacoco.utreportpath>${jacoco.outputDir}/jacoco-unit</jacoco.utreportpath>
+        <jacoco.utreportfile>${jacoco.outputDir}/jacoco.exec</jacoco.utreportfile>
+        <jacoco.itreportpath>${jacoco.outputDir}/jacoco-it</jacoco.itreportpath>
+        <jacoco.itreportfile>${jacoco.outputDir}/jacoco-it.exec</jacoco.itreportfile>
+        <jacoco.mergedreportpath>${jacoco.outputDir}/jacoco-merged</jacoco.mergedreportpath>
+        <jacoco.mergedreportfile>${jacoco.outputDir}/jacoco-merged.exec</jacoco.mergedreportfile>
     </properties>
 
     <repositories>
@@ -251,6 +252,35 @@
                         <configuration>
                             <outputDirectory>${jacoco.itreportpath}</outputDirectory>
                             <dataFile>${jacoco.itreportfile}</dataFile>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>merge-unit-and-integration</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>merge</goal>
+                        </goals>
+                        <configuration>
+                            <fileSets>
+                                <fileSet>
+                                    <directory>${jacoco.outputDir}</directory>
+                                    <includes>
+                                        <include>*.exec</include>
+                                    </includes>
+                                </fileSet>
+                            </fileSets>
+                            <destFile>${jacoco.mergedreportfile}</destFile>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>create-merged-report</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <configuration>
+                            <dataFile>${jacoco.mergedreportfile}</dataFile>
+                            <outputDirectory>${jacoco.mergedreportpath}</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>

@@ -4,13 +4,13 @@ language: java
 cache:
  directories:
   - "$HOME/.m2"
-  - docker_images
+  - "$HOME/docker_images"
 
 services:
  - docker
 
 before_install:
- - docker load -i docker_images/images.tar || true
+ - docker load -i "$HOME/docker_images/images.tar" || true
  - cd backend
  - chmod +x ./mvnw
  - sudo apt-get install jq
@@ -20,11 +20,11 @@ script:
  - ./mvnw verify -B
 
 after_success:
- - java -jar ~/codacy-coverage-reporter-assembly-latest.jar report -l Java -r target/jacoco/jacoco.xml
+ - java -jar ~/codacy-coverage-reporter-assembly-latest.jar report -l Java -r target/jacoco-merged/jacoco-merged.xml
 
 before_cache:
  - rm -rf $HOME/.m2/repository/com/github/wcosmedlr/balance-backend/
- - docker save -o docker_images/images.tar $(docker images -a -q)
+ - docker save -o "$HOME/docker_images/images.tar" $(docker images -a -q)
 
 jdk:
  - oraclejdk11
