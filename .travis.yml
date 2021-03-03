@@ -20,7 +20,7 @@ script:
  - ./mvnw verify -B
 
 after_success:
- - java -jar ~/codacy-coverage-reporter-assembly-latest.jar report -l Java -r target/jacoco-merged/jacoco.xml
+ - java -jar ~/codacy-coverage-reporter-assembly-latest.jar report -l Java -r target/jacoco-output/jacoco-merged/jacoco.xml
 
 before_cache:
  - rm -rf $HOME/.m2/repository/com/github/wcosmedlr/balance-backend/
