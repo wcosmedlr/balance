@@ -1,4 +1,3 @@
-import { Balance } from "./balance";
 import { Member, buildMember } from "./member";
 import { MoneyUnit } from "./moneyunit";
 

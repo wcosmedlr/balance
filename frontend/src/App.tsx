@@ -16,7 +16,6 @@ import Navbar from './components/Navbar';
 import { expenseRepositoryInstance } from './respositories/ExpenseRepository';
 import { memberRepositoryInstance } from './respositories/MemberRepository';
 import { balanceRepositoryInstance } from './respositories/BalanceRepository';
-import { transactionRepositoryInstance } from './respositories/TransactionRepository';
 
 function App() {
   return (
@@ -24,7 +23,6 @@ function App() {
       expenseRepository={expenseRepositoryInstance}
       memberRepository={memberRepositoryInstance}
       balanceRepository={balanceRepositoryInstance}
-      transactionRepository={transactionRepositoryInstance}
     >
       <Router>
         <div className="container">

@@ -1,13 +1,11 @@
 import { createContext, useEffect, useRef, useState } from "react";
-import { Balance } from "./models/balance";
 import { Expense } from './models/expense';
 import { Member } from "./models/member";
-import { Transaction } from "./models/transaction";
 import { expenseMockRepository, ExpenseRepository } from "./respositories/ExpenseRepository";
 import { MemberRepository, memberMockRepository } from "./respositories/MemberRepository";
-import { balanceMockRepository, BalanceRepository} from "./respositories/BalanceRepository";
-import { TransactionRepository, transactionMockRepository } from "./respositories/TransactionRepository";
+import { BalanceRepository, balanceMockRepository } from "./respositories/BalanceRepository";
 import { act } from "react-dom/test-utils";
+import { Balance, buildBalance } from "./models/balance";
 
 
 type AppContextType = {
@@ -15,8 +13,7 @@ type AppContextType = {
     expenses: Expense[];
     addMember: (member: Member) => void;
     members: Member[];
-    balances: Balance[];
-    transactions: Transaction[];
+    balance: Balance;
 };
 
 export const AppContext = createContext<AppContextType>({
@@ -24,35 +21,29 @@ export const AppContext = createContext<AppContextType>({
     expenses: [],
     addMember: (member: Member) => {},
     members: [],
-    balances: [],
-    transactions: [] 
+    balance: buildBalance({})
 });
 
 interface AppContextProps {
   expenseRepository?: ExpenseRepository;
   memberRepository?: MemberRepository;
   balanceRepository?: BalanceRepository;
-  transactionRepository?: TransactionRepository;
   initialExpenses?: Expense[]
   initialMembers?: Member[]
-  initialBalances?: Balance[]
-  initialTransactions?: Transaction[]
+  initialBalance?: Balance
 }
 
 const AppContextProvider: React.FC<AppContextProps> = ({children,
   expenseRepository = expenseMockRepository,
   memberRepository = memberMockRepository,
   balanceRepository = balanceMockRepository,
-  transactionRepository = transactionMockRepository,
   initialExpenses = [],
   initialMembers = [],
-  initialBalances = [],
-  initialTransactions = []
+  initialBalance = buildBalance({})
 }) => {
     const [expenses, setExpenses] = useState<Expense[]>(initialExpenses);
     const [members, setMembers] = useState<Member[]>(initialMembers);
-    const [balances, setBalances] = useState<Balance[]>(initialBalances);
-    const [transactions, setTransactions] = useState<Transaction[]>(initialTransactions);
+    const [balance, setBalance] = useState<Balance>(initialBalance);
   
     useEffect(() => {
       const initializeExpenses = async ()=>{
@@ -79,23 +70,16 @@ const AppContextProvider: React.FC<AppContextProps> = ({children,
         executions.current++;
         return;
       }
-      const updateBalance = async ()=>{
-        const newBalances = await balanceRepository.getBalances();
-        act(() => {
-          setBalances(newBalances)
-        })
-      }
   
-      const updateTransactions = async () =>{
-        const newTransactions = await transactionRepository.getTransactions();
+      const updateAccount = async () =>{
+        const newBalance = await balanceRepository.getBalance();
         act(() => {
-          setTransactions(newTransactions)
+          setBalance(newBalance)
         })
       }
 
-      updateBalance()
-      updateTransactions()
-    }, [expenses, members, balanceRepository, transactionRepository])
+      updateAccount()
+    }, [expenses, members, balanceRepository])
 
     const addExpense = (expense: Expense) => {
       expenseRepository.addExpense(expense).then(
@@ -122,7 +106,7 @@ const AppContextProvider: React.FC<AppContextProps> = ({children,
   }
     
     return (
-      <AppContext.Provider value={{ expenses, addExpense, members, addMember, balances, transactions }}>
+      <AppContext.Provider value={{ expenses, addExpense, members, addMember, balance }}>
         {children}
       </AppContext.Provider>
     );

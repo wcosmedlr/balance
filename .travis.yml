@@ -1,0 +1,30 @@
+---
+language: java
+
+cache:
+ directories:
+  - "$HOME/.m2"
+  - "$HOME/docker_images"
+
+services:
+ - docker
+
+before_install:
+ - docker load -i "$HOME/docker_images/images.tar" || true
+ - cd backend
+ - chmod +x ./mvnw
+ - sudo apt-get install jq
+ - wget -O ~/codacy-coverage-reporter-assembly-latest.jar $(curl https://api.github.com/repos/codacy/codacy-coverage-reporter/releases/latest | jq -r .assets[0].browser_download_url)
+
+script:
+ - ./mvnw verify -B
+
+after_success:
+ - java -jar ~/codacy-coverage-reporter-assembly-latest.jar report -l Java -r target/jacoco-output/jacoco-merged/jacoco.xml
+
+before_cache:
+ - rm -rf $HOME/.m2/repository/com/github/wcosmedlr/balance-backend/
+ - docker save -o "$HOME/docker_images/images.tar" $(docker images -a -q)
+
+jdk:
+ - oraclejdk11

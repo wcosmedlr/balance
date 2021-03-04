@@ -1,0 +1,7 @@
+datasources:
+  default:
+    url: jdbc:mysql://localhost:${datasources.default.port}/balance-db
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: balance-us
+    password: balance-pw
+jpa.default.properties.hibernate.hbm2ddl.auto: update
